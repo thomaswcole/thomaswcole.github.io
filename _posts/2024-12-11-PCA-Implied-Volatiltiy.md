@@ -26,7 +26,6 @@ Before diving into the empirical data and the technique we are applying to analy
 
 To structure our analysis, we will parameterize the implied volatility surface based on time to expiration and delta. The figure below shows an example of an implied volatility surface for AAPL options.
 
-<img src="assets/images/AAPL_IVS.png" width="400">
 
 ### Data Acquisition
 
