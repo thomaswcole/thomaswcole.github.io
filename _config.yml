@@ -102,7 +102,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: 'https://media.licdn.com/dms/image/v2/D4E03AQFEfJMLMIxLVQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731091846553?e=1739404800&v=beta&t=_zSAoY9qS2K0CV7s1VBv4Yn9mD1IpL_zEPGrvrVjwz0'
+avatar: 'https://media.licdn.com/dms/image/v2/D4E03AQFEfJMLMIxLVQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731091846539?e=1746057600&v=beta&t=3xIinLn4uCBrr1Z-X48UEHpLVeLE3pa54WuLLDS2vqA'
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
