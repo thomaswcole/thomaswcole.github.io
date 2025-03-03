@@ -1,6 +1,6 @@
 ---
 title: 'Properties of Returns and Volatility'
-date: '2025-01-17'
+date: '2025-01-29'
 categories: ['Probability','Statistics','Monthly','Returns','Volatility']
 use_math: True
 math: True
