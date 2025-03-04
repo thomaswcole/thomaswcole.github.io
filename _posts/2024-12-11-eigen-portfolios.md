@@ -89,7 +89,7 @@ Since our covariance matrix is non-negative, this allows us to use tools such as
 
 The weights for each of the ETF's on the first two principal components are shown below.
 
-**FIGURE HERE**
+![PCA Loadings](assets/images/eigenportfolio/pca_loadings.png)
 
 The first principal component explains *INSERT VALUE* % of the variance within our data, as measured by the ratio of its eigenvalue to the sum of eigenvalues. A and Lee then define an eigenportfolio as a portfolio which is weighted by the eigenvector loadings normalized by the indidivdual asset return volatility. This gives:
 
@@ -100,7 +100,8 @@ $$
 The performance of the first eigenportfolio, and the market, which is proxied as the S&P500 is shown below. 
 
 
-**INSERT PERFORMANCE PIC**
+![Portfolio Returns](assets/images/eigenportfolio/ep-vs-market.png)
+
 
 
 So the volatility normalized weights on the first eigenvector, essentially represent the market. Maybe this is surprising or not.
