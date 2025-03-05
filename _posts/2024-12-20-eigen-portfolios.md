@@ -1,11 +1,10 @@
 ---
-title: 'Eigenvalues and Eigen Portfolios'
-date: '2024-12-11'
-categories: ['Factor Models','Equities']
+title: 'Eigenportfolios and SVD'
+date: '2024-12-20'
+categories: ['Linear Algebra','Factor Models','SVD']
 use_math: True
 math: True
 ---
-
 
 ### Introduction
 
@@ -13,8 +12,8 @@ Eigenvalues and eigenvectors are fundamental concepts in linear algebra, appeari
 
 In this post, I’ll provide a concise yet insightful overview of eigenportfolios—what they are, how to construct them, and an interesting (or perhaps unsurprising) link to familiar concepts. Main sources listed here:
 
-- (1)
-- (2) 
+- (1) Avellaneda, M., & Lee, J.-H. (2008). Statistical Arbitrage in the U.S. Equities Market. arXiv. https://arxiv.org/abs/0807.1551
+- (2) Aldridge, I., & Avellaneda, M. (2021). Chapter 6. In Big Data Science in Finance. John Wiley & Sons, Incorporated.
 
 ### Eigenvalues and Eigenvectors
 
@@ -57,7 +56,7 @@ You'll have to trust me, and all the research that has gone this type of computa
 
 #### The covariance matrix is PSD
 
-An important result, and one that we'll show here is that the covariance matrix is actualy PSD. Let $$X$$ be a matrix of random variables, and let $$\Sigma$$ be our corresponding covariance matrix.
+An important result, and one that we'll show here is that the covariance matrix is actually PSD. Let $$X$$ be a matrix of random variables, and let $$\Sigma$$ be our corresponding covariance matrix.
 
 Then we want to show that 
 
@@ -91,7 +90,7 @@ The weights for each of the ETF's on the first two principal components are show
 
 ![PCA Loadings](assets/images/eigenportfolio/pca_loadings.png)
 
-The first principal component explains *INSERT VALUE* % of the variance within our data, as measured by the ratio of its eigenvalue to the sum of eigenvalues. A and Lee then define an eigenportfolio as a portfolio which is weighted by the eigenvector loadings normalized by the indidivdual asset return volatility. This gives:
+The first principal component explains 62% of the variance within our data, as measured by the ratio of its eigenvalue to the sum of eigenvalues. Avellaneda and Lee (1) then define an eigenportfolio as a portfolio which is weighted by the eigenvector loadings normalized by the individual asset return volatility. This gives:
 
 $$
 w_i = \frac{v_i}{\sigma_i}
@@ -99,12 +98,10 @@ $$
 
 The performance of the first eigenportfolio, and the market, which is proxied as the S&P500 is shown below. 
 
-
 ![Portfolio Returns](assets/images/eigenportfolio/ep-vs-market.png)
 
 
-
-So the volatility normalized weights on the first eigenvector, essentially represent the market. Maybe this is surprising or not.
+So the volatility normalized weights on the first eigenvector, essentially represents the market. Maybe this is surprising or not.
 
 ### Conclusion
 
