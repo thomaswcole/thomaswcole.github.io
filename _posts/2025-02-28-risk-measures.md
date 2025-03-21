@@ -1,7 +1,7 @@
 ---
 title: 'Risk Statistics and Risk Models'
 date: '2025-02-28'
-categories: ['Probability','Statistics','Monthly','Returns','Risk','Volatility']
+categories: ['Monthly']
 use_math: True
 math: True
 ---
