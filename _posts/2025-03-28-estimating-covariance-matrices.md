@@ -1,6 +1,6 @@
 ---
 title: 'Estimating the covariance matrix - how hard is it?'
-date: '2025-03-19'
+date: '2025-03-28'
 categories: ['Monthly']
 use_math: True
 math: True
@@ -10,7 +10,7 @@ March 2025
 
 ### **Introduction**
 
-We're back again for another post in this year long series, which as of this month is now 1/4th complete. Again, you can catch up on the most recent post [here](https://thomaswcole.github.io/posts/risk-measures/), and find the others in the monthly folder [here].
+We're back again for another post in this year long series, which as of this month is now 1/4th complete. Again, you can catch up on the most recent post [here](https://thomaswcole.github.io/posts/risk-measures/), and find the others in the monthly folder [here](https://thomaswcole.github.io/categories/monthly/).
 
 In this post we'll be looking at covariance matrix estimation - the problems that are commonly encountered and also some well known solutions to this. Near the end, we'll look at how better estimation can lead to more robust results in traditional mean-variance optimization problems. 
 
@@ -113,3 +113,10 @@ This analysis demonstrates the impact of different covariance estimation techniq
 Conversely, the sample covariance estimator performs the worst, suffering from extreme weight allocations due to its instability in high-dimensional settings $$(N \gg T)$$. This result underscores the well-known issue of overfitting when using naive sample estimates in finance.  
 
 Overall, this again highlights the importance of incorporating improved covariance estimation techniques, such as shrinkage, when constructing optimal portfolios in practice.
+
+As always, you can find additional resources and code on my GitHub. Thank you for reading!
+
+*References*
+
+- (1) Ledoit, O., & Wolf, M. (2018). Honey, I shrunk the sample covariance matrix. http://www.ledoit.net/honey.pdf.
+- (2) J.P. Morgan. (1996). RiskMetrics—Technical Document.https://www.msci.com/documents/10199/5915b101-4206-4ba0-aee2-3449d5c7e95a.
