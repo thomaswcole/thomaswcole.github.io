@@ -114,7 +114,7 @@ Conversely, the sample covariance estimator performs the worst, suffering from e
 
 Overall, this again highlights the importance of incorporating improved covariance estimation techniques, such as shrinkage, when constructing optimal portfolios in practice.
 
-As always, you can find additional resources and code on my GitHub. Thank you for reading!
+As always, you can find additional resources and code on my GitHub. Thanks for reading!
 
 *References*
 
