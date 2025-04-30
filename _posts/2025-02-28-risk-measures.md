@@ -1,5 +1,7 @@
 ---
-title: 'Risk Statistics and Risk Models'
+title: 'Measuring and visualizing portfolio risk'
+description: >-
+  A review of risk metrics, and how to calculate them in Python
 date: '2025-02-28'
 categories: ['Monthly']
 use_math: True

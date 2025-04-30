@@ -1,5 +1,7 @@
 ---
-title: 'Properties of Returns and Volatility'
+title: 'Stylized facts of equity returns and volatility'
+description: >-
+  An empirical review of stylized facts of equity returns and volatility, and their implications for modelling.
 date: '2025-01-29'
 categories: ['Monthly']
 use_math: True

@@ -1,5 +1,7 @@
 ---
-title: 'Statistical Arbitrage with Correlation Matrix Clustering'
+title: 'Statistical arbitrage with correlation matrix clustering'
+description: >-
+  Utilizing graph clustering algorithms for stat arb
 date: '2024-12-11'
 categories: ['Clustering','Unsupervised Learning','Kmeans']
 use_math: True

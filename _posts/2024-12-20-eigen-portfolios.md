@@ -1,5 +1,7 @@
 ---
-title: 'Eigenportfolios and SVD'
+title: 'Eigenportfolios'
+description: >-
+  A nice connection between eigenvalues, eigenvectors and the market
 date: '2024-12-20'
 categories: ['Linear Algebra','Factor Models','SVD']
 use_math: True

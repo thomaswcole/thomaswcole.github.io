@@ -1,5 +1,7 @@
 ---
-title: 'Principal Component Analysis on Implied Volatility Surfaces'
+title: 'Principal Component Analysis on implied volatility surfaces'
+description: >-
+  Decomposing implied volatility surfaces using PCA, applications to portfolio construction
 date: '2024-12-11'
 categories: ['PCA','Equities','Options','Implied Volatility']
 use_math: True
