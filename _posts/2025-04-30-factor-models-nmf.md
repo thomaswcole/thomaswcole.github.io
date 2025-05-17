@@ -1,7 +1,7 @@
 ---
-title: 'Factor models and non-negative matrix factorization'
+title: 'Statistical factor models and an extension with NMF'
 description: >-
-  Uncovering market factors with non-negative matrix factorization
+  A review of statistical factor models and an extension with non-negative matrix factorization
 date: '2025-05-30'
 categories: ['Monthly']
 use_math: True
