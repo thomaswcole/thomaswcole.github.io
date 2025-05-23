@@ -1,8 +1,8 @@
 ---
-title: 'The impact of market concentration and crowding'
-date: '2025-05-10'
+title: 'Diversification or all in?'
+date: '2025-05-30'
 description: >-
-  A simulation study on the impact of market concentration and crowding.
+  Examining the benefits of diversificaition and the role of market concentration.
 categories: ['Monthly']
 use_math: True
 math: True
