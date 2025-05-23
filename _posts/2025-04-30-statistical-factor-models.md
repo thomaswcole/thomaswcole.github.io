@@ -392,6 +392,10 @@ In contrast to the differences we saw within the previous two plots, the idio re
 
 To summarize, we first explored the formulation of the statistical factor models and then examined the use of different factor discovery methods. Finally, through empirical data we explored the differences in factor characterisitcs under each of these methods. 
 
-Thanks for reading!
+As always, you can find additional resources and code on my GitHub. Thanks for reading!
+
+*References*
+
+- (1) Paleologo, G. A. (2025). The Elements of Quantitative Investing. Hoboken, NJ: Wiley.
 
 
