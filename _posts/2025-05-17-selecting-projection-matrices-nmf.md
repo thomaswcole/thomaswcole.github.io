@@ -3,7 +3,8 @@ title: 'Selecting suitable projection matrices for compressed NMF'
 date: '2025-05-17'
 description: >-
   An empirical study on the impact of projection matrix selection for compressed NMF
-categories: ['NMF','Statistics']
+categories: ['Research']
+tags: ['Optimization','Unsupervised Learning']
 use_math: True
 math: True
 ---

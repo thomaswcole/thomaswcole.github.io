@@ -3,7 +3,8 @@ title: 'Estimating the covariance matrix - how hard is it?'
 date: '2025-03-28'
 description: >-
   A brief review of covariance matrix estimation techniques
-categories: ['Monthly']
+categories: ['Portfolio Construction']
+tags: ['Statistics']
 use_math: True
 math: True
 ---

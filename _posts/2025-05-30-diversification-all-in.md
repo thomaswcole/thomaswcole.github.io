@@ -1,9 +1,10 @@
 ---
 title: 'Diversification or all in?'
-date: '2025-05-30'
+date: '2025-06-30'
 description: >-
   Examining the benefits of diversificaition and the role of market concentration.
-categories: ['Monthly']
+categories: ['Portfolio Construction']
+tags: []
 use_math: True
 math: True
 ---
@@ -11,7 +12,7 @@ math: True
 ### **Introduction**
 
 
-In this post, which is another install of the year long series, we'll be exploring the impact of market concentration and crowding on investors. If you're interested in reading past posts, you can find the others in the monthly folder [here](https://thomaswcole.github.io/categories/monthly/).
+In this post, which is another installment of the year long series, we'll be exploring the impact of market concentration and crowding on investors. If you're interested in reading past posts, you can find the others in the monthly folder [here](https://thomaswcole.github.io/categories/monthly/).
 
 This topic in particular is motivated by a recent academic competition which I competed in, the IAQF Academic Student Competition. My team and I were also fortunate enough to be announced as one of the winners. You can read the original problem formulation and the announcement [here](https://thomaswcole.github.io/categories/monthly/), and our full paper [here](https://thomaswcole.github.io/categories/monthly/).
 

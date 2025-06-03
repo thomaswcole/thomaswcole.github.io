@@ -3,16 +3,16 @@ title: 'Eigenportfolios'
 description: >-
   A nice connection between eigenvalues, eigenvectors and the market
 date: '2024-12-20'
-categories: ['Linear Algebra','Factor Models','SVD']
+categories: ['Factor Models']
 use_math: True
 math: True
 ---
 
 ### Introduction
 
-Eigenvalues and eigenvectors are fundamental concepts in linear algebra, appearing frequently in statistics and machine learning— one key example being Principal Component Analysis (PCA). But what is an eigenportfolio, and how does it relate to these mathematical ideas? At first glance, portfolios and eigenvectors might seem unrelated, yet they share somewhat interesting connection.
+Eigenvalues and eigenvectors are fundamental concepts in linear algebra, appearing frequently in both statistics and machine learning, one key example being Principal Component Analysis (PCA). But what is an eigenportfolio, and how does it relate to these mathematical ideas? At first glance, portfolios and eigenvectors might seem unrelated, yet they share a somewhat interesting (and maybe expected) connection.
 
-In this post, I’ll provide a concise yet insightful overview of eigenportfolios—what they are, how to construct them, and an interesting (or perhaps unsurprising) link to familiar concepts. Main sources listed here:
+In this post, I’ll provide a concise yet insightful overview of eigenportfolios; what they are, how to construct them, and an interesting (or perhaps unsurprising) link to familiar concepts. Main sources listed here:
 
 - (1) Avellaneda, M., & Lee, J.-H. (2008). Statistical Arbitrage in the U.S. Equities Market. arXiv. https://arxiv.org/abs/0807.1551
 - (2) Aldridge, I., & Avellaneda, M. (2021). Chapter 6. In Big Data Science in Finance. John Wiley & Sons, Incorporated.

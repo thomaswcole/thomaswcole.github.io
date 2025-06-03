@@ -3,7 +3,8 @@ title: 'Statistical factor models, and factor discovery'
 description: >-
   A review of statistical factor models and an extension with different factor discovery techniques
 date: '2025-04-30'
-categories: ['Monthly']
+categories: ['Factor Models']
+tags: ['Unsupervised Learning']
 use_math: True
 math: True
 ---
