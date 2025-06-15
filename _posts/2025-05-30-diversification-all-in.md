@@ -11,17 +11,25 @@ math: True
 
 ### **Introduction**
 
+In this post, we'll be exploring the role of diversification in portfolio management, the different approaches to doing it and understanding it. One of the main motivations for this post is that the talk of diversification benefits has recently filled my Twitter (X) feed. Even more over, I recently competed in (and won) the 2025 IAQF Academic Student Competition, where in our paper we explored the effects that market concentration can have on investors. If you'd like to read the original problem and our paper, you can do so [here](https://tinyurl.com/4u397j9a).
 
-In this post, which is another installment of the year long series, we'll be exploring the impact of market concentration and crowding on investors. If you're interested in reading past posts, you can find the others in the monthly folder [here](https://thomaswcole.github.io/categories/monthly/).
-
-This topic in particular is motivated by a recent academic competition which I competed in, the IAQF Academic Student Competition. My team and I were also fortunate enough to be announced as one of the winners. You can read the original problem formulation and the announcement [here](https://thomaswcole.github.io/categories/monthly/), and our full paper [here](https://thomaswcole.github.io/categories/monthly/).
+In the next few sections, we'll try to answer the following question: Where do the benefits of diversification really lie, and why shouldn't I, like many of those on r/WallStreetsBets just go all in (maybe even with leverage)? 
 
 ### **Motivation**
 
-In 2024, it has been reported that % of the returns within the SP500, were attributed to just seven companies. These seven companies have become known as the Magnificent Seven. They are: AAPL, TSLA, META, GOOG, NVDA, MSFT, AMZN. This dominance of returns in equity markets has driven the following research questions which I'll hope to answer through a simulation study. 
+Perhaps one of the first things taught in many portfolio management courses is that: "diversification is the only free lunch". Yet, when we examine some of the most sucessful investors of our time, they are famously known for taking highly concentrated positions, and being rewarded greatly for them (Warren Buffert, George Soros etc.). So what gives? Why are they not taking their free lunch? 
 
-**Setup**
+For arguments sake, lets ignore those "outliers" above. Now consider this fact: In 2024, it has been reported that 53% of the returns within the SP500, were attributed to just seven companies. These seven companies have become known as the Magnificent Seven, they are: AAPL, TSLA, META, GOOG, NVDA, MSFT, AMZN. In the chart below is their annualized returns against the SP500. I've also overlayed an equally weighted portfolio of these MAG7 stocks.
 
-To keep our results in line with what we might expect in the SP500,our goal here will be to model the dynamics of the SP500. We'll do this by simulating the returns of 500 unique assets, which we'll then split up into 11 sectors, generate synthetic returns and then analyze the impact of market concentration.
+**CHART**
+
+Then, let's look at the relative beta contribution of this mag7 universe to the SP500. That is, we take the weighted beta of the MAG7 and multiply it by their weight in the index. The chart below will show you that most of the beta within this index has become dominated by these few stocks.
+
+**CHART**
+
+Hopefully, from these chart alone my argument is fairly clear- why should I invest in a diversified (is it even) ETF like the SP500 instead of going all in on these seven stocks? Quantiatively, the equal weight mag7 portfolio outperformed the SP500 over this period by roughly 50%. If we even further tilted that  portfolio to be more heavily NVDA then of course we could have done even better.
+
+
+
 
 
