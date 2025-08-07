@@ -1,6 +1,6 @@
 ---
 title: 'Diversification or all in?'
-date: '2025-06-30'
+date: '2025-12-30'
 description: >-
   Examining the benefits of diversificaition and the role of market concentration.
 categories: ['Portfolio Construction']

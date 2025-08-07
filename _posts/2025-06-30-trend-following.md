@@ -1,6 +1,6 @@
 ---
 title: 'Systematic trend following - evidence across asset classes'
-date: '2025-07-30'
+date: '2025-12-30'
 description: >-
   A review of traditional trend following strategies, and their success across a variety of markets.
 categories: ['Trading Strategies']
