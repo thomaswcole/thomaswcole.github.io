@@ -8,16 +8,15 @@ use_math: True
 math: True
 ---
 
-### Introduction
-
-Eigenvalues and eigenvectors are fundamental concepts in linear algebra, appearing frequently in both statistics and machine learning, one key example being Principal Component Analysis (PCA). But what is an eigenportfolio, and how does it relate to these mathematical ideas? At first glance, portfolios and eigenvectors might seem unrelated, yet they share a somewhat interesting (and maybe expected) connection.
-
-In this post, I’ll provide a concise yet insightful overview of eigenportfolios; what they are, how to construct them, and an interesting (or perhaps unsurprising) link to familiar concepts. Main sources listed here:
+Eigenvalues and eigenvectors are fundamental concepts in linear algebra, appearing frequently across statistics and machine learning, and a key-component of one of the most well known dimensionality reduction methods - Principal Component Analysis (PCA).  In this post, we’ll provide a concise yet insightful overview of eigenportfolios; what they are, how to construct them, and an interesting (or perhaps unsurprising) link those familiar concepts. Main sources listed here:
 
 - (1) Avellaneda, M., & Lee, J.-H. (2008). Statistical Arbitrage in the U.S. Equities Market. arXiv. https://arxiv.org/abs/0807.1551
 - (2) Aldridge, I., & Avellaneda, M. (2021). Chapter 6. In Big Data Science in Finance. John Wiley & Sons, Incorporated.
 
-### Eigenvalues and Eigenvectors
+### The Covariance Matrix
+
+
+#### Review of Eigenvalues and Eigenvectors
 
 Let's first review briefly what eigenvalues and eigenvectors are; and how you can find them. The eigenvectors $$x$$ and eigenvalues $$\lambda$$ of a matrix $$A$$ satisfy the following relation.
 
@@ -27,7 +26,7 @@ $$
 
 In words, this means that when we apply the matrix $$A$$ to $$x$$, it simply gets multiplied by a constant, and that constant,$$\lambda$$, is its corresponding eigenvalue.
 
-#### Solving for them (1)
+##### Solving for them (1)
 
 One might remember a common way to solve for eigenvalues is by solving the *characteristic polynomial*, which is obtained by solving the following equation:
 
@@ -37,7 +36,7 @@ $$
 
 This is fairly straightforward, however, if we know some special properties of our matrix, then we can actually solve "easier" equations instead. This may not seem relevant for low dimensional computation, but quickly becomes important at higher dimensions, which is where we're headed (unless?).
 
-#### A smarter way 
+##### A smarter way 
 
 Let's assume that our matrix $$A$$ is nice, and by nice, I mean that its ***positive semi-definite*** (PSD). In math terms this means that;
 
@@ -56,7 +55,7 @@ where
 
 You'll have to trust me, and all the research that has gone this type of computation, that solving for this decomposition, is much faseter than solving our original equation $$1$$.
 
-#### The covariance matrix is PSD
+#### The Covariance Matrix is PSD
 
 An important result, and one that we'll show here is that the covariance matrix is actually PSD. Let $$X$$ be a matrix of random variables, and let $$\Sigma$$ be our corresponding covariance matrix.
 

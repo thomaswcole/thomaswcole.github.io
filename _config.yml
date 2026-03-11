@@ -16,10 +16,10 @@ timezone:
 
 title: Thomas Cole # Main Title
 
-tagline: grad student @ Columbia # it will display as the subtitle
+tagline:  prev. grad student @ Columbia # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  grad student @ Columbia
+  prev. grad student @ Columbia 
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -102,7 +102,7 @@ theme_mode: light # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: 'https://media.licdn.com/dms/image/v2/D4E03AQFEfJMLMIxLVQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731091846553?e=1754524800&v=beta&t=h-eyrRJ_kgkp3ApNHyPU5CljeP5Iwf0JuGMCg9msfp8'
+avatar: 'https://media.licdn.com/dms/image/v2/D4E03AQFEfJMLMIxLVQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731091846539?e=1773878400&v=beta&t=T4gAO_KUt3s4-7Ic917SEPiDa1ruaRtnbua1YUW_0to'
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.

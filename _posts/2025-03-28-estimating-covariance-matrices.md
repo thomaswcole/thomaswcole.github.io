@@ -1,6 +1,6 @@
 ---
 title: 'Estimating the covariance matrix - how hard is it?'
-date: '2025-03-28'
+date: '2030-12-30'
 description: >-
   A brief review of covariance matrix estimation techniques
 categories: ['Portfolio Construction']

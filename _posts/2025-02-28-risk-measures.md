@@ -2,7 +2,7 @@
 title: 'Measuring and visualizing portfolio risk'
 description: >-
   A review of risk metrics, and how to calculate them in Python
-date: '2025-02-28'
+date: '2030-12-30'
 categories: ['Visualization']
 tags: ['Python','Visualization','Data Science']
 use_math: True
