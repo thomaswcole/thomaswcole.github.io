@@ -2,7 +2,7 @@
 title: 'Statistical arbitrage with correlation matrix clustering'
 description: >-
   Utilizing graph clustering algorithms for stat arb
-date: '2024-12-11'
+date: '2026-12-11'
 categories: ['Trading Strategies']
 tags: ['Clustering','Statistical Arbitrage','Equities']
 use_math: True

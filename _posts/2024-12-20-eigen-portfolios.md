@@ -1,111 +1,93 @@
 ---
-title: 'Eigenportfolios'
+title: 'Eigenportfolios: Can We Find the Market from the Data Itself?'
 description: >-
-  A nice connection between eigenvalues, eigenvectors and the market
+  Using PCA and eigenportfolios to recover the market as a statistical object, not an assumption
 date: '2024-12-20'
 categories: ['Factor Models']
 use_math: True
 math: True
 ---
 
-Eigenvalues and eigenvectors are fundamental concepts in linear algebra, appearing frequently across statistics and machine learning, and a key-component of one of the most well known dimensionality reduction methods - Principal Component Analysis (PCA).  In this post, we’ll provide a concise yet insightful overview of eigenportfolios; what they are, how to construct them, and an interesting (or perhaps unsurprising) link those familiar concepts. Main sources listed here:
+If you ask someone what "the market" is they'll usually point to an index such as the S&P 500. But this choice of "the market" is inherently human - someone, S&P in our example, decided which companies belong, and as a result which don't belong in the index, how they should be weighted, how they should be rebalanced and much more. In 2026, this seemingly well defined task has gotten even more attention with the debate around the inclusion of large IPOs such as $SPCX proving to not be agreeable across index providers. 
 
-- (1) Avellaneda, M., & Lee, J.-H. (2008). Statistical Arbitrage in the U.S. Equities Market. arXiv. https://arxiv.org/abs/0807.1551
-- (2) Aldridge, I., & Avellaneda, M. (2021). Chapter 6. In Big Data Science in Finance. John Wiley & Sons, Incorporated.
+These are hard decisions, and I'm certainly not qualified enough to have any input on what their methodologies should or shouldn't be; so I'll stick to what I do know, math
 
-### The Covariance Matrix
+The central question of the topic of this post is: What if instead we let the data tell us what the dominant common factor in a set of asset returns actually is, with no index, no benchmark, and no prior assumptions about what "the market" should look like? To do this, we'll build a purely statistical object — an **eigenportfolio** — out of nothing but the covariance structure of a handful of ETF returns, and see whether it rediscovers something we already recognize.
 
+### Why the Covariance Matrix Is the Right Starting Point
 
-#### Review of Eigenvalues and Eigenvectors
+If we want to find co-movement in returns without imposing a structure ourselves, the natural object to study is the covariance matrix $$\Sigma$$ of asset returns. The covariance matrix captures, pairwise, how every asset moves relative to every other, and critically, it has a mathematical property that makes it decomposable in a very clean way: it's **positive semi-definite (PSD)**.
 
-Let's first review briefly what eigenvalues and eigenvectors are; and how you can find them. The eigenvectors $$x$$ and eigenvalues $$\lambda$$ of a matrix $$A$$ satisfy the following relation.
-
-$$
-Ax = \lambda x
-$$
-
-In words, this means that when we apply the matrix $$A$$ to $$x$$, it simply gets multiplied by a constant, and that constant,$$\lambda$$, is its corresponding eigenvalue.
-
-##### Solving for them (1)
-
-One might remember a common way to solve for eigenvalues is by solving the *characteristic polynomial*, which is obtained by solving the following equation:
+Concretely, a matrix, call it $$\Sigma$$ is PSD if
 
 $$
-det|A - \lambda I| = 0
+x^{T}\Sigma x \ge 0 \quad \forall x \in \mathbb{R}^{n}
 $$
 
-This is fairly straightforward, however, if we know some special properties of our matrix, then we can actually solve "easier" equations instead. This may not seem relevant for low dimensional computation, but quickly becomes important at higher dimensions, which is where we're headed (unless?).
-
-##### A smarter way 
-
-Let's assume that our matrix $$A$$ is nice, and by nice, I mean that its ***positive semi-definite*** (PSD). In math terms this means that;
-
-- For all $$x$$, $$x^{T}Ax \ge 0$$  
-- All eigenvalues of $$A$$ are positive
-
-Now, since this is the case, we can perform ***singular value decomposition*** on $$A$$. SVD, is a matrix factorization technique, where we re-write $$A$$ as 
-
-$$
-A = U\Lambda U^{T}
-$$
-
-where 
-- $$U$$ is an orthogonal matrix
-- $$\Lambda$$ is a diagonal matrix of eigenvalues
-
-You'll have to trust me, and all the research that has gone this type of computation, that solving for this decomposition, is much faseter than solving our original equation $$1$$.
-
-#### The Covariance Matrix is PSD
-
-An important result, and one that we'll show here is that the covariance matrix is actually PSD. Let $$X$$ be a matrix of random variables, and let $$\Sigma$$ be our corresponding covariance matrix.
-
-Then we want to show that 
-
-$$
-x^{T}\Sigma x \ge 0 \ \forall x \in R^{n}
-$$
-
-Then we apply the definition of the covaraince matrix
+which is easy to show directly from the definition of covariance. Let $$X$$ be our vector of asset returns. Then:
 
 $$
 \begin{align}
 x^{T}\Sigma x & = x^{T}E[(X-E[X])(X-E[X])^{T}]x \\
 & = E[x^{T}(X-E[X])(X-E[X])^{T}x] \\
-& = E[(x^{T}(X-E[X]))^2] 
+& = E[(x^{T}(X-E[X]))^2] \ge 0
 \end{align}
 $$
 
-We know that the expectation of a squared quantity is always positive, thus we have:
+since the expectation of a squared quantity can never be negative.
+
+Why does this matter for us? A symmetric PSD matrix like $$\Sigma$$ can always be written as
 
 $$
-x^{T}\Sigma x \ge 0 \ \forall x \in R^{n}
+\Sigma = U\Lambda U^{T}
 $$
 
-This is what we wanted to show, $$\Sigma$$ is PSD.
+where $$U$$ is orthogonal (its columns are orthonormal eigenvectors) and $$\Lambda$$ is diagonal with **non-negative** eigenvalues. This is the *spectral decomposition* of $$\Sigma$$, and it's the machinery underneath everything that follows: it guarantees we can split the variance in our returns into a set of orthogonal (uncorrelated) directions, each with a well-defined, non-negative amount of variance attached to it. That guarantee is what makes the next step PCA mathematically sound.
 
-### Constructing Portfolios
+### What PCA Actually Gives Us
 
-Since our covariance matrix is non-negative, this allows us to use tools such as PCA to decompose the factors that explain the variance within our dataset. Now, lets apply this to some real data. Below, I've just used the industry ETFs, with a date range of 2024-01-01 to 2025-01-01. 
+Principal Component Analysis (PCA) takes that spectral decomposition and gives it a statistical interpretation:
 
-The weights for each of the ETF's on the first two principal components are shown below.
+- Each eigenvector of $$\Sigma$$ defines a direction in "asset-return space", that is, a specific linear combination of assets.
+- The corresponding eigenvalue tells us how much of the total variance in the data is explained by moving along that direction.
+- Because the eigenvectors are orthogonal, these directions are uncorrelated with each other and each one captures a distinct, non-overlapping slice of the market's variance.
 
-![PCA Loadings](assets/images/eigenportfolio/pca_loadings.png)
+Sorting components by eigenvalue size gives us a ranked list of "what's driving co-movement," from most important to least. If there's a single dominant factor behind a group of asset returns, we'd expect to see it show up as an outsized first eigenvalue, and a first eigenvector whose weights look, in some sense, like "the market."
 
-The first principal component explains 62% of the variance within our data, as measured by the ratio of its eigenvalue to the sum of eigenvalues. Avellaneda and Lee (1) then define an eigenportfolio as a portfolio which is weighted by the eigenvector loadings normalized by the individual asset return volatility. This gives:
+To test this, we ran PCA on daily returns for a set of industry ETFs, 2024-01-01 to 2026-01-01. The loadings of the first 2, principal components are shown below:
+
+![pca-loadings](assets/images/eigenportfolio/pca_loadings.png)
+
+We also find that the first principal component explains roughly 62% of the total variance, as measured by the ratio of its eigenvalue to the sum of all eigenvalues. This already gives a strong signal that there is a single dominant common factor at play, and in fact we even start to see the relative weight in each sector from this, such as Technology (XLK) as the largest loading.
+
+### From Components to Portfolios
+
+An eigenvector on its own isn't directly investable — it's a set of loadings, not portfolio weights, and those loadings are scale-sensitive to each asset's volatility. Avellaneda and Lee (1) resolve this by defining an **eigenportfolio**: take the eigenvector loadings and normalize each by its asset's return volatility.
 
 $$
 w_i = \frac{v_i}{\sigma_i}
 $$
 
-The performance of the first eigenportfolio, and the market, which is proxied as the S&P500 is shown below. 
+This rescaling turns the abstract "direction of maximum variance" into a concrete, tradable set of portfolio weights where each asset is weighted in proportion to how much it contributes to the common factor, adjusted for how volatile it individually is.
 
-![Portfolio Returns](assets/images/eigenportfolio/ep-vs-market.png)
+### The Test: Does PC1 Look Like the Market?
+
+Here's the question we set out to answer: if the first eigenportfolio really is capturing the dominant common factor in these returns, we'd expect it to track something we'd already recognize as "the market" for instance, a broad index like the S&P 500 without ever having been told that index exists. We construct the first eigenportfolio by applying these volatility-adjusted weights to the asset returns directly. The two are shown below:
+
+![sols-count](assets/images/eigenportfolio/ep-vs-market.png)
+
+The two track each other closely. The eigenportfolio was built with no reference to the S&P 500 at all, it emerged purely from the covariance structure of a handful of industry ETFs and yet it still recovers something that looks like the market.
+
+### Why This Is Useful, Not Just Neat
+
+It's tempting to read this as a cute confirmation of something we already knew, of course a diversified basket's dominant factor looks like "the market." But the value isn't in trading the eigenportfolio itself; it's in what the method actually buys you.
+
+Whenever "the market" isn't a well-defined, off-the-shelf object such as when were dealing with a custom universe of futures, or a sector-specific basket, this approach gives you a way to construct a market-like factor directly from the data, with no external benchmark required. That's directly useful for building hedges: if you can recover the dominant common factor statistically, you can hedge exposure to it even when there's no natural index to short against.
+
+We'll leave the hedging construction for another post but the core idea stands: you don't need to assume what the market is. You can just let the data show you.
 
 
-So the volatility normalized weights on the first eigenvector, essentially represents the market. Maybe this is surprising or not.
+### References
 
-### Conclusion
-
-The existence of these eigenportfolios is, in my opinion, somewhat interesting but more so a reflection of the underlying structure of the market, and the mathematics that we have used to arrive at this result. 
-
-Additionally, while the eigenportfolios themselves aren't necessarily something that you would be interested in trading, you could imagine how they might be used for other cases - for example constructing hedging strategies against a market index but using these as a proxy. We'll perhaps leave that for another time. Thanks for reading.
+- (1) Avellaneda, M., & Lee, J.-H. (2008). Statistical Arbitrage in the U.S. Equities Market. arXiv. https://arxiv.org/abs/0807.1551
+- (2) Aldridge, I., & Avellaneda, M. (2021). Chapter 6. In Big Data Science in Finance. John Wiley & Sons, Incorporated.
